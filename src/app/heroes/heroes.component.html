@@ -1,0 +1,36 @@
+<h2>List of Heroes</h2>
+
+<!--
+  BUSCADOR HEROES
+-->
+<app-hero-search></app-hero-search>
+
+<!--
+  LISTA HEROES
+-->
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button type="button" class="delete" title="delete hero" data-bs-toggle="modal" data-bs-target="#deleteHeroModal" (click)="saveHero(hero)"><i class="fa fa-trash-o"></i></button>
+  </li>
+</ul>
+
+<!--
+  MODAL BORRADO HEROE
+-->
+<div class="modal fade" id="deleteHeroModal" tabindex="-1" role="dialog" aria-labelledby="deleteHeroModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteHeroModalLabel">
+          Are you sure you want to delete the hero?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="delete" (click)="deleteejemp()">Yes</button>
+        <button #closeModal  type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
